@@ -38,7 +38,8 @@ static std::optional<std::string> optField(
             snake += c;
         }
     }
-    for (const auto* k : {&key, &snake})
+    const std::string* names[] = {&key, &snake};
+    for (const std::string* k : names)
         if (body.contains(*k)
             && body[*k].is_string()
             && !body[*k].get<std::string>().empty())
